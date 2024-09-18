@@ -67,7 +67,8 @@
             // ab£$%^&* = not valid
             // QWERTYu! = valid
 
-
+            //if (password.Contains(65,90) && password.Contains(97,122))
+            
             // Check password contains no runs of more than 2 consecutive or repeating letters or numbers
             // AAbbdd!2 = valid (only 2 consecutive letters A and B and only 2 repeating of each)
             // abC461*+ = not valid (abC are 3 consecutive letters)
