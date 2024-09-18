@@ -31,16 +31,22 @@
         static bool ValidName(string name)
         {
             // name must be at least two characters and contain only letters
-        }
-
-        static bool validAge(int age)
-        {
-            //age must be between 11 and 18 inclusive
-            if (age >= 11 && age <= 18)
+            int charNum = name.Length;
+            if (charNum >= 2 && name.All(Char.IsLetter))
             {
                 return true;
             }
             return false;
+        }
+
+        static bool validAge(int age)
+        {
+                //age must be between 11 and 18 inclusive
+                if (age >= 11 && age <= 18)
+                {
+                    return true;
+                }
+                return false;
         }
 
    
@@ -50,6 +56,12 @@
 
 
             // Check password contains a mix of lower case, upper case and non letter characters
+            int charNum = password.Length; //gets the length of password
+                if (charNum >= 8)
+                {
+                    return true;
+                }
+                return false;
             // QWErty%^& = valid
             // QWERTYUi = not valid
             // ab£$%^&* = not valid
@@ -81,9 +93,9 @@
             // last two characters of last name
             // age
             //e.g. Bob Smith aged 34 would have the username Both34
-
-
-
+            string lastTwo = lastName.Substring((lastName.Length - 2), 2); //last two letters of surname
+            string username = (firstName.Substring(0, 2) + lastTwo + age); //combining to make username
+            return username;
         }
 
     }
