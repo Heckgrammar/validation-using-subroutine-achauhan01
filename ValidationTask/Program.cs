@@ -62,6 +62,18 @@
                     return true;
                 }
                 return false;
+            byte[] ASCII = Encoding.ASCII.GetBytes(password);
+            int[] checkLowerCase = Enumerable.Range(65, 90).ToArray();
+            int[] checkUpperCase = Enumerable.Range(97, 122).ToArray();
+            int[] checkNumber = Enumerable.Range(48, 57).ToArray();
+            int[] checkSpecialChar1 = Enumerable.Range(32, 47).ToArray();
+            int[] checkSpecialChar2 = Enumerable.Range(58, 64).ToArray();
+            int[] checkSpecialChar3 = Enumerable.Range(91, 96).ToArray();
+            int[] checkSpecialChar4 = Enumerable.Range(123, 126).ToArray();
+            if (ASCII.Contains(checkLowerCase) && (ASCII.Contains(checkUpperCase)))
+            {
+
+            }
             // QWErty%^& = valid
             // QWERTYUi = not valid
             // ab£$%^&* = not valid
