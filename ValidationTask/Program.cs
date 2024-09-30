@@ -117,7 +117,7 @@ namespace ValidationTask
                 return true;
             }
             // does not contain any other non letter or number characters
-            string nonLetters = "^(?=.*[0-9]){0}(?=.*[$!£|^*+=%~#@_-]){0}$"; //these symbols/numbers should occur 0 times
+            string nonLetters = "^(?=.*[0-9]){0}(?=.*[$!£|^*+=%~#_-]){0}$"; //these symbols/numbers should occur 0 times
             if (Regex.IsMatch(email, nonLetters))
             {
                 return true;
