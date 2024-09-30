@@ -11,3 +11,6 @@ validAge function works successfully.
 ![image](https://github.com/user-attachments/assets/0ae00095-a48e-46b5-9bb9-87b49505b435) //password is not at least 8 characters
 // did not manage to figure out how to check for consecutive letters
 
+![image](https://github.com/user-attachments/assets/86cfd80b-4657-4a9b-a2e4-e32046c375ec) //email contains non letter characters
+![image](https://github.com/user-attachments/assets/201b280d-fbd8-4f49-a899-332bfc7ca996) //email has more than one @
+![image](https://github.com/user-attachments/assets/2bf24d1b-2f68-43f5-b0f2-018bc625b23c) //does not have at least two characters before the @ and after the .
