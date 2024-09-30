@@ -2,7 +2,7 @@ namespace ValidationTask
 {
     internal class Program
     {
-       static void Main(string[] args)
+        static void Main(string[] args)
         {
             string firstName, lastName, username, password, emailAddress;
             int age;
@@ -11,19 +11,34 @@ namespace ValidationTask
             // The username should only be output once
             Console.Write("Enter first name: ");
             firstName = Console.ReadLine();
-            ValidName(firstName);
+            if (ValidName(firstName) == false)
+            {
+                Console.WriteLine("First name is invalid");
+            }
             Console.Write("Enter last name: ");
             lastName = Console.ReadLine();
-            ValidName(lastName);
+            if (ValidName(lastName) == false)
+            {
+                Console.WriteLine("Last name is invalid");
+            }
             Console.Write("Enter age: ");
             age = Convert.ToInt32(Console.ReadLine());
-            validAge(age);
+            if (validAge(age) == false)
+            {
+                Console.WriteLine("Age is invalid");
+            }
             Console.Write("Enter Password: ");
             password = Console.ReadLine();
-            ValidPassword(password);
+            if (ValidPassword(password) == false)
+            {
+                Console.WriteLine("Password is invalid");
+            }
             Console.Write("Enter email address: ");
             emailAddress = Console.ReadLine();
-            validEmail(emailAddress);
+            if (validEmail(emailAddress))
+            {
+                Console.WriteLine("Email is invalid");
+            }
 
 
             username = createUserName(firstName, lastName, age);
@@ -91,7 +106,7 @@ namespace ValidationTask
             }
             // has at least 2 characters after the .
             string lastTwo = email.Substring((email.Length - 2), 2); //last two letters of email
-            if ((lastTwo.Substring(0,1) != ".") || (lastTwo.Substring(1,1) != ".")) //checks if last two characters are not .
+            if ((lastTwo.Substring(0, 1) != ".") || (lastTwo.Substring(1, 1) != ".")) //checks if last two characters are not .
             {
                 return true;
             }
