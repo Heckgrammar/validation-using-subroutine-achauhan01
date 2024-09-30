@@ -63,34 +63,51 @@ namespace ValidationTask
             {
                 return true;
             }
-
             // Check password contains a mix of lower case, upper case and non letter characters
             // QWErty%^& = valid
             // QWERTYUi = not valid
             // ab£$%^&* = not valid
             // QWERTYu! = valid
-            string pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$!£|^*+=%~#@_-])$";
+            string pattern = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$!£|^*+=%~#@_-])$"; //lowercase, uppercase, numbers and special characters
             if (Regex.IsMatch(password, pattern))
             {
                 return true;
             }
-
+            return false;
             // Check password contains no runs of more than 2 consecutive or repeating letters or numbers
             // AAbbdd!2 = valid (only 2 consecutive letters A and B and only 2 repeating of each)
             // abC461*+ = not valid (abC are 3 consecutive letters)
             // 987poiq! = not valid (987 are consecutive)
-            return false;
+            //DID NOT MANAGE TO FIGURE OUT HOW TO DO ^^^
         }
         static bool validEmail(string email)
         {
             // a valid email address
-            // has at least 2 characters followed by an @ symbol
-            // has at least 2 characters followed by a .
+            // has at least 2 characters followed by an @ symbol and has at least 2 characters followed by a .
+            string firstTwo = email.Substring(0, 2);
+            if ((firstTwo.Substring(0, 1) != ".") || (firstTwo.Substring(1, 1) != ".")) //checks if first two characters are not .
+            {
+                return true;
+            }
             // has at least 2 characters after the .
+            string lastTwo = email.Substring((email.Length - 2), 2); //last two letters of email
+            if ((lastTwo.Substring(0,1) != ".") || (lastTwo.Substring(1,1) != ".")) //checks if last two characters are not .
+            {
+                return true;
+            }
             // contains only one @ and any number of .
+            string symbol = "^(?=.*[@])?(?=.*[.])+$"; //checks if @ occurs either 0 or 1 times, checks if . occurs at least once
+            if (Regex.IsMatch(email, symbol))
+            {
+                return true;
+            }
             // does not contain any other non letter or number characters
+            string nonLetters = "^(?=.*[0-9]){0}(?=.*[$!£|^*+=%~#@_-]){0}$"; //these symbols/numbers should occur 0 times
+            if (Regex.IsMatch(email, nonLetters))
+            {
+                return true;
+            }
             return false;
-
         }
         static string createUserName(string firstName, string lastName, int age)
         {
